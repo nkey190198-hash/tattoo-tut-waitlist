@@ -235,6 +235,10 @@
     font-size:56px;line-height:1;margin:14px 0 4px;
   }
   .plan .per{color:var(--muted);font-size:14px}
+  .plan .plan-list{list-style:none;margin:18px 0 4px;padding:0;text-align:left}
+  .plan .plan-list li{font-size:15px;color:var(--muted);padding:7px 0 7px 26px;position:relative;border-bottom:1px solid var(--line)}
+  .plan .plan-list li:last-child{border-bottom:none}
+  .plan .plan-list li::before{content:"";position:absolute;left:2px;top:14px;width:12px;height:3px;background:var(--lime);border-radius:2px}
   .plan .lock{
     margin-top:18px;font-size:13.5px;font-weight:600;
     display:inline-block;padding:7px 14px;border-radius:999px;
@@ -391,7 +395,7 @@
   <!-- TOOLS -->
   <section id="tools" class="wrap" aria-labelledby="tools-h">
     <p class="kicker reveal">What you get</p>
-    <h2 id="tools-h" class="reveal">Seven tools. One workstation.</h2>
+    <h2 id="tools-h" class="reveal">Eight tools. One workstation.</h2>
     <p class="section-lead reveal">Everything between the consult and the needle, handled in one place, on your phone.</p>
 
     <div class="tools-grid">
@@ -457,6 +461,15 @@
         <h3>Portfolio shots that look studio-lit</h3>
         <p>Healed piece, phone camera, bad studio light? Clean it up to portfolio grade. Better photos book better clients at better prices.</p>
       </article>
+
+      <article class="card reveal">
+        <div class="icon-tile" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="M16 10.5 21 7v10l-5-3.5"/></svg>
+        </div>
+        <span class="tool-tag">Video Try-On</span>
+        <h3>The try-on, but it moves</h3>
+        <p>Place the piece on their photo, then bring it to life: the snake crawls, the wings beat. A five-second clip that sells the session and their next story post.</p>
+      </article>
     </div>
   </section>
 
@@ -470,12 +483,12 @@
         <p class="proof-label">users in the Russian-speaking beta</p>
       </div>
       <div>
-        <div class="proof-num">7</div>
+        <div class="proof-num">8</div>
         <p class="proof-label">tools in one workstation, from first draft to portfolio shot</p>
       </div>
       <div>
-        <div class="proof-num">~2 min</div>
-        <p class="proof-label">from a client's idea to a sketch you can put in front of them</p>
+        <div class="proof-num">27</div>
+        <p class="proof-label">sketch styles, from fine line to ignorant</p>
       </div>
     </div>
   </section>
@@ -490,22 +503,40 @@
         <div class="tier">Starter</div>
         <div class="price">$19</div>
         <div class="per">per month</div>
+        <ul class="plan-list">
+          <li>Sketches in 27 styles</li>
+          <li>Print-ready stencils</li>
+          <li>Extract a sketch from any photo</li>
+          <li>Photo enhance for your portfolio</li>
+        </ul>
         <div class="lock">Founding price · locked forever</div>
       </div>
       <div class="plan mid reveal">
         <div class="tier">Pro</div>
         <div class="price">$29</div>
         <div class="per">per month</div>
+        <ul class="plan-list">
+          <li>Everything in Starter, bigger quotas</li>
+          <li>Try-on on the client's photo</li>
+          <li>Client try-on link with booking requests</li>
+          <li>Priority generation queue</li>
+        </ul>
         <div class="lock">Founding price · locked forever</div>
       </div>
       <div class="plan reveal">
         <div class="tier">Studio</div>
         <div class="price">$39</div>
         <div class="per">per month</div>
+        <ul class="plan-list">
+          <li>Everything in Pro, top quotas</li>
+          <li>Animated tattoos and video try-on</li>
+          <li>Made for studios and busy chairs</li>
+          <li>First in line for every new tool</li>
+        </ul>
         <div class="lock">Founding price · locked forever</div>
       </div>
     </div>
-    <p class="pricing-note reveal">Extra video quota: $4. Full plan details at launch. <b>The window closes at launch. That's the only catch.</b></p>
+    <p class="pricing-note reveal">Extra video quota from $4. Final quotas are set at launch — founding members lock the price either way. <b>The window closes at launch. That's the only catch.</b></p>
   </section>
 
   <!-- FAQ -->
