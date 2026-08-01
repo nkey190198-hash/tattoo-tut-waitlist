@@ -28,39 +28,6 @@
 
 <!-- Без JS .reveal остался бы прозрачным и страница выглядела бы пустой. -->
 <noscript><style>.reveal{opacity:1 !important; transform:none !important}
-/* ── v732: ползунок «до/после» на первом экране ─────────────────── */
-.ba{position:relative}
-.ba__frame{position:relative;overflow:hidden;border-radius:inherit;
-  aspect-ratio:4/5;background:#0d0d0d;touch-action:pan-y}
-.ba__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  user-select:none;-webkit-user-drag:none;pointer-events:none}
-.ba__clip{position:absolute;inset:0;width:50%;overflow:hidden;will-change:width}
-.ba__clip .ba__img{width:auto;height:100%;min-width:1px}
-.ba__clip{--w:50%}
-.ba__clip .ba__img--before{position:absolute;left:0;top:0;height:100%;
-  width:var(--frameW,100%);max-width:none}
-.ba__line{position:absolute;top:0;bottom:0;left:50%;width:2px;
-  background:var(--lime,#c8f533);transform:translateX(-1px);pointer-events:none;
-  box-shadow:0 0 18px rgba(200,245,51,.55)}
-.ba__grip{position:absolute;top:50%;left:50%;width:44px;height:44px;
-  transform:translate(-50%,-50%);border-radius:50%;
-  background:var(--lime,#c8f533);display:block;
-  box-shadow:0 6px 22px rgba(0,0,0,.45)}
-.ba__grip::before,.ba__grip::after{content:"";position:absolute;top:50%;
-  width:0;height:0;border-block:5px solid transparent}
-.ba__grip::before{left:12px;border-right:7px solid #0d0d0d;transform:translateY(-50%)}
-.ba__grip::after{right:12px;border-left:7px solid #0d0d0d;transform:translateY(-50%)}
-.ba__range{position:absolute;inset:0;width:100%;height:100%;opacity:0;
-  cursor:ew-resize;margin:0;appearance:none;background:transparent}
-.ba__range::-webkit-slider-thumb{appearance:none;width:56px;height:100%}
-.ba__tag{position:absolute;bottom:12px;font:600 11px/1 var(--f-ui,inherit);
-  letter-spacing:.12em;text-transform:uppercase;color:#fff;
-  background:rgba(0,0,0,.55);padding:6px 10px;border-radius:99px;
-  backdrop-filter:blur(4px);pointer-events:none}
-.ba__tag--l{left:12px}
-.ba__tag--r{right:12px}
-.ba__cap{margin-top:10px;font-size:13px;opacity:.6;text-align:center}
-@media (prefers-reduced-motion:reduce){.ba__line{transition:none}}
 </style></noscript>
 
 <style>
@@ -592,6 +559,40 @@ section[id], main[id]{scroll-margin-top:76px}
   .hero__grid .trustbar{align-self:start; margin-top:6px}
   .hero h1{font-size:clamp(44px,4.6vw,66px)}
 }
+
+/* ── v732: ползунок «до/после» на первом экране ─────────────────── */
+.ba{position:relative}
+.ba__frame{position:relative;overflow:hidden;border-radius:inherit;
+  aspect-ratio:4/5;height:auto;background:#0d0d0d;touch-action:pan-y}
+.ba__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  user-select:none;-webkit-user-drag:none;pointer-events:none}
+.ba__clip{position:absolute;inset:0;width:50%;overflow:hidden;will-change:width}
+.ba__clip .ba__img{width:auto;height:100%;min-width:1px}
+.ba__clip{--w:50%}
+.ba__clip .ba__img--before{position:absolute;left:0;top:0;height:100%;
+  width:var(--frameW,100%);max-width:none}
+.ba__line{position:absolute;top:0;bottom:0;left:50%;width:2px;
+  background:var(--lime,#c8f533);transform:translateX(-1px);pointer-events:none;
+  box-shadow:0 0 18px rgba(200,245,51,.55)}
+.ba__grip{position:absolute;top:50%;left:50%;width:44px;height:44px;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:var(--lime,#c8f533);display:block;
+  box-shadow:0 6px 22px rgba(0,0,0,.45)}
+.ba__grip::before,.ba__grip::after{content:"";position:absolute;top:50%;
+  width:0;height:0;border-block:5px solid transparent}
+.ba__grip::before{left:12px;border-right:7px solid #0d0d0d;transform:translateY(-50%)}
+.ba__grip::after{right:12px;border-left:7px solid #0d0d0d;transform:translateY(-50%)}
+.ba__range{position:absolute;inset:0;width:100%;height:100%;opacity:0;
+  cursor:ew-resize;margin:0;appearance:none;background:transparent}
+.ba__range::-webkit-slider-thumb{appearance:none;width:56px;height:100%}
+.ba__tag{position:absolute;bottom:12px;font:600 11px/1 var(--f-ui,inherit);
+  letter-spacing:.12em;text-transform:uppercase;color:#fff;
+  background:rgba(0,0,0,.55);padding:6px 10px;border-radius:99px;
+  backdrop-filter:blur(4px);pointer-events:none}
+.ba__tag--l{left:12px}
+.ba__tag--r{right:12px}
+.ba__cap{margin-top:10px;font-size:13px;opacity:.6;text-align:center}
+@media (prefers-reduced-motion:reduce){.ba__line{transition:none}}
 </style>
 </head>
 
