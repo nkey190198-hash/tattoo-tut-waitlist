@@ -27,7 +27,41 @@
 </script>
 
 <!-- Без JS .reveal остался бы прозрачным и страница выглядела бы пустой. -->
-<noscript><style>.reveal{opacity:1 !important; transform:none !important}</style></noscript>
+<noscript><style>.reveal{opacity:1 !important; transform:none !important}
+/* ── v732: ползунок «до/после» на первом экране ─────────────────── */
+.ba{position:relative}
+.ba__frame{position:relative;overflow:hidden;border-radius:inherit;
+  aspect-ratio:4/5;background:#0d0d0d;touch-action:pan-y}
+.ba__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  user-select:none;-webkit-user-drag:none;pointer-events:none}
+.ba__clip{position:absolute;inset:0;width:50%;overflow:hidden;will-change:width}
+.ba__clip .ba__img{width:auto;height:100%;min-width:1px}
+.ba__clip{--w:50%}
+.ba__clip .ba__img--before{position:absolute;left:0;top:0;height:100%;
+  width:var(--frameW,100%);max-width:none}
+.ba__line{position:absolute;top:0;bottom:0;left:50%;width:2px;
+  background:var(--lime,#c8f533);transform:translateX(-1px);pointer-events:none;
+  box-shadow:0 0 18px rgba(200,245,51,.55)}
+.ba__grip{position:absolute;top:50%;left:50%;width:44px;height:44px;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:var(--lime,#c8f533);display:block;
+  box-shadow:0 6px 22px rgba(0,0,0,.45)}
+.ba__grip::before,.ba__grip::after{content:"";position:absolute;top:50%;
+  width:0;height:0;border-block:5px solid transparent}
+.ba__grip::before{left:12px;border-right:7px solid #0d0d0d;transform:translateY(-50%)}
+.ba__grip::after{right:12px;border-left:7px solid #0d0d0d;transform:translateY(-50%)}
+.ba__range{position:absolute;inset:0;width:100%;height:100%;opacity:0;
+  cursor:ew-resize;margin:0;appearance:none;background:transparent}
+.ba__range::-webkit-slider-thumb{appearance:none;width:56px;height:100%}
+.ba__tag{position:absolute;bottom:12px;font:600 11px/1 var(--f-ui,inherit);
+  letter-spacing:.12em;text-transform:uppercase;color:#fff;
+  background:rgba(0,0,0,.55);padding:6px 10px;border-radius:99px;
+  backdrop-filter:blur(4px);pointer-events:none}
+.ba__tag--l{left:12px}
+.ba__tag--r{right:12px}
+.ba__cap{margin-top:10px;font-size:13px;opacity:.6;text-align:center}
+@media (prefers-reduced-motion:reduce){.ba__line{transition:none}}
+</style></noscript>
 
 <style>
 /* ============================================================
@@ -683,36 +717,25 @@ section[id], main[id]{scroll-margin-top:76px}
     </div>
 
     <!-- Вау-ассет: тёмная врезка, инлайн-графика. Никаких внешних файлов. -->
-    <div class="media media--hero reveal" aria-hidden="true">
-      <span class="media__label" data-i18n="media_hero">Inside the bot</span>
-      <svg class="ink-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="gskin" cx="50%" cy="42%" r="62%">
-            <stop offset="0%" stop-color="#1c2a14"/>
-            <stop offset="100%" stop-color="#000"/>
-          </radialGradient>
-        </defs>
-        <rect width="400" height="500" fill="url(#gskin)"/>
-        <!-- контур предплечья -->
-        <path class="stroke" opacity=".38" d="M126 22c-6 62-14 112-16 172-2 58 4 118 14 176 4 24 6 82 6 108M274 22c6 62 14 112 16 172 2 58-4 118-14 176-4 24-6 82-6 108"/>
-        <!-- змея: тело -->
-        <path class="stroke" stroke-width="2" d="M200 92c-40 22-56 60-30 90 26 30 74 34 88 70 14 36-18 78-58 84-30 5-58-8-70-30"/>
-        <path class="stroke" opacity=".55" d="M200 108c-32 18-45 48-24 72 22 24 68 30 82 62 13 30-13 64-46 69"/>
-        <!-- голова -->
-        <path class="stroke" stroke-width="2" d="M200 92c8-12 26-16 38-8 12 8 14 24 4 34"/>
-        <circle cx="228" cy="94" r="3" fill="#f2f5ea"/>
-        <!-- чешуя -->
-        <g class="stroke breathe" opacity=".5">
-          <path d="M186 130c8 6 18 6 26 0M180 152c9 7 20 7 29 0M182 176c9 7 21 7 30 0M196 200c9 7 21 7 30 0M214 226c9 7 21 7 30 0M228 254c9 7 21 7 30 0M232 284c9 7 21 7 30 0M222 314c9 7 21 7 30 0"/>
-        </g>
-        <!-- лаймовая трассирующая линия: намёк на оживление -->
-        <path class="glow" d="M200 92c-40 22-56 60-30 90 26 30 74 34 88 70 14 36-18 78-58 84-30 5-58-8-70-30"/>
-        <!-- рамка кадра -->
-        <g class="stroke stroke--lime" opacity=".55">
-          <path d="M24 24h34M24 24v34M376 24h-34M376 24v34M24 476h34M24 476v-34M376 476h-34M376 476v-34"/>
-        </g>
-      </svg>
-    </div>
+    <!-- v732 (заказ владельца 01.08): вместо декоративной змеи — ЖИВОЙ ползунок
+         «эскиз → трансфер» на реальной работе. Человек тянет ручку и своими
+         руками видит, что делает инструмент. Первый экран обязан показывать
+         продукт, а не орнамент. Картинки те же, что уже лежат на сайте. -->
+    <figure class="media media--hero reveal ba" id="ba">
+      <span class="media__label" data-i18n="media_hero">Sketch → transfer</span>
+      <div class="ba__frame">
+        <img class="ba__img ba__img--after"  src="bull_transfer.jpg" alt="" loading="eager" decoding="async">
+        <div class="ba__clip" id="baClip">
+          <img class="ba__img ba__img--before" src="bull_sketch.jpg" alt="" loading="eager" decoding="async">
+        </div>
+        <div class="ba__line" id="baLine"><span class="ba__grip" aria-hidden="true"></span></div>
+        <span class="ba__tag ba__tag--l" data-i18n="ba_before">Sketch</span>
+        <span class="ba__tag ba__tag--r" data-i18n="ba_after">Transfer</span>
+        <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50"
+               aria-label="Compare sketch and transfer">
+      </div>
+      <figcaption class="ba__cap" data-i18n="ba_cap">Drag to see what the artist actually gets</figcaption>
+    </figure>
 
     <!-- Полоса доверия: на мобильном идёт ПОД видео, на десктопе под текстом -->
     <div class="trustbar reveal">
@@ -1722,6 +1745,39 @@ function initTracking(){
     showAll();
     if(window.console && console.error) console.error('[tt] init failed:', e);
   }
+})();
+
+/* ── v732: ползунок «до/после». Ширина «до» = ширина кадра, чтобы
+   картинка не сжималась при движении ручки, а именно ОТКРЫВАЛАСЬ. ── */
+(function(){
+  var root=document.getElementById('ba'); if(!root) return;
+  var clip=document.getElementById('baClip'), line=document.getElementById('baLine'),
+      rng=document.getElementById('baRange'), frame=root.querySelector('.ba__frame'),
+      before=clip&&clip.querySelector('.ba__img--before');
+  function sizeBefore(){ if(before&&frame) before.style.width=frame.clientWidth+'px'; }
+  function set(v){ v=Math.max(0,Math.min(100,v));
+    clip.style.width=v+'%'; line.style.left=v+'%'; }
+  rng.addEventListener('input',function(){ set(+rng.value); });
+  frame.addEventListener('pointerdown',function(e){
+    var r=frame.getBoundingClientRect();
+    function move(ev){ var v=((ev.clientX-r.left)/r.width)*100; rng.value=v; set(v); }
+    move(e);
+    function up(){ window.removeEventListener('pointermove',move);
+                   window.removeEventListener('pointerup',up); }
+    window.addEventListener('pointermove',move);
+    window.addEventListener('pointerup',up);
+  });
+  window.addEventListener('resize',sizeBefore);
+  sizeBefore(); set(50);
+  // первый показ: короткий проход ручкой, чтобы человек понял, что её тянут
+  var seen=false;
+  var io=new IntersectionObserver(function(es){ es.forEach(function(en){
+    if(en.isIntersecting&&!seen){ seen=true;
+      var t=0, id=setInterval(function(){ t+=1;
+        var v=50+28*Math.sin(t/9); rng.value=v; set(v);
+        if(t>56){ clearInterval(id); rng.value=50; set(50); } },16);
+    }});},{threshold:.4});
+  io.observe(root);
 })();
 </script>
 </body>
