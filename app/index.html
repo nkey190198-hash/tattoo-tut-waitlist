@@ -593,6 +593,111 @@ section[id], main[id]{scroll-margin-top:76px}
 .ba__tag--r{right:12px}
 .ba__cap{margin-top:10px;font-size:13px;opacity:.6;text-align:center}
 @media (prefers-reduced-motion:reduce){.ba__line{transition:none}}
+
+/* ══════════ v733: плотность Хиггсфилда — пресеты, ссылка, время, журнал ══════ */
+.eyebrow{font:600 11px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-dim);margin:0 0 10px}
+.sec--presets .chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}
+.chip{font:600 13px/1 var(--font-body);padding:9px 15px;border-radius:99px;cursor:pointer;
+  border:1px solid rgba(11,18,8,.16);background:transparent;color:var(--ink);
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .12s ease}
+.chip:hover{border-color:var(--ink);transform:translateY(-1px)}
+.chip.is-on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-theme="dark"] .chip{border-color:rgba(242,245,234,.2)}
+[data-theme="dark"] .chip.is-on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+.pgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.pcard{border:1px solid rgba(11,18,8,.12);border-radius:var(--radius-lg);overflow:hidden;
+  background:transparent;cursor:pointer;display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.pcard:hover{transform:translateY(-4px);border-color:var(--ink);
+  box-shadow:0 14px 34px rgba(11,18,8,.13)}
+[data-theme="dark"] .pcard{border-color:rgba(242,245,234,.14)}
+.pcard__media{aspect-ratio:4/3;overflow:hidden;background:#0d0d0d}
+.pcard__media img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover .pcard__media img{transform:scale(1.06)}
+.pcard__media--soon{display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(196,240,0,.16),rgba(11,18,8,.06))}
+.pcard__badge{font:700 10px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 11px;border-radius:99px;background:var(--accent);color:var(--accent-ink)}
+.pcard__t{font:600 17px/1.25 var(--font-display);margin:14px 16px 6px;letter-spacing:.01em}
+.pcard__d{font-size:14px;color:var(--ink-dim);margin:0 16px 12px;line-height:1.5}
+.pcard__go{font:600 13px/1 var(--font-body);margin:auto 16px 16px;color:var(--ink);
+  opacity:.55;transition:opacity .18s ease,transform .18s ease}
+.pcard:hover .pcard__go{opacity:1;transform:translateX(3px)}
+
+.link__grid{display:grid;gap:clamp(24px,5vw,56px);grid-template-columns:1fr;align-items:center}
+@media(min-width:900px){.link__grid{grid-template-columns:1.05fr .95fr}}
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0}
+.steps li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:16px;
+  line-height:1.55}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;
+  border-radius:50%;display:grid;place-items:center;font:700 14px/1 var(--font-body);
+  background:var(--accent);color:var(--accent-ink)}
+.note{margin-top:20px;padding:14px 16px;border-left:3px solid var(--accent);
+  background:rgba(196,240,0,.09);border-radius:0 10px 10px 0;font-size:15px;line-height:1.55}
+.link__phone{position:relative;border-radius:26px;overflow:hidden;max-width:330px;
+  margin-inline:auto;border:1px solid rgba(11,18,8,.14);box-shadow:0 22px 50px rgba(11,18,8,.16)}
+.link__phone img{width:100%;display:block}
+.link__lbl{position:absolute;top:12px;left:12px;z-index:2;font:600 11px/1 var(--font-body);
+  letter-spacing:.1em;text-transform:uppercase;padding:7px 11px;border-radius:99px;
+  background:rgba(0,0,0,.6);color:#fff;backdrop-filter:blur(4px)}
+
+.ttable{margin-top:22px;border:1px solid rgba(11,18,8,.12);border-radius:var(--radius-lg);
+  overflow:hidden}
+[data-theme="dark"] .ttable{border-color:rgba(242,245,234,.14)}
+.trow{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:8px;padding:13px 16px;
+  border-bottom:1px solid rgba(11,18,8,.08);font-size:15px;align-items:center}
+[data-theme="dark"] .trow{border-color:rgba(242,245,234,.09)}
+.trow:last-child{border-bottom:0}
+.trow--head{font:600 12px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-dim);background:rgba(11,18,8,.04)}
+[data-theme="dark"] .trow--head{background:rgba(242,245,234,.05)}
+.trow:not(.trow--head):hover{background:rgba(196,240,0,.07)}
+.tsave{font-weight:700;color:var(--ink)}
+
+.jgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:20px}
+.jcard{display:flex;flex-direction:column;border:1px solid rgba(11,18,8,.12);
+  border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:inherit;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+[data-theme="dark"] .jcard{border-color:rgba(242,245,234,.14)}
+a.jcard:hover{transform:translateY(-4px);border-color:var(--ink);
+  box-shadow:0 14px 34px rgba(11,18,8,.13)}
+.jcard__media{aspect-ratio:16/9;overflow:hidden;background:#0d0d0d}
+.jcard__media img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+a.jcard:hover .jcard__media img{transform:scale(1.05)}
+.jcard__body{padding:16px}
+.jcard__tag{display:inline-block;font:700 10px/1 var(--font-body);letter-spacing:.14em;
+  text-transform:uppercase;padding:5px 10px;border-radius:99px;
+  background:var(--accent);color:var(--accent-ink);margin-bottom:10px}
+.jcard__t{font:600 19px/1.2 var(--font-display);margin:0 0 8px}
+.jcard__d{font-size:14px;color:var(--ink-dim);line-height:1.55;margin:0 0 12px}
+.jcard__go{font:600 13px/1 var(--font-body);opacity:.6;transition:opacity .18s,transform .18s}
+a.jcard:hover .jcard__go{opacity:1;transform:translateX(3px)}
+.jcard--soon{opacity:.55}
+
+/* ── мобильная нижняя панель, приём Хиггсфилда ────────────────── */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  grid-template-columns:repeat(5,1fr);align-items:end;
+  padding:8px 6px calc(8px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:blur(14px);border-top:1px solid rgba(11,18,8,.1)}
+[data-theme="dark"] .tabbar{border-color:rgba(242,245,234,.12)}
+@media(max-width:860px){.tabbar{display:grid} body{padding-bottom:76px}}
+.tab{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;
+  color:var(--ink);opacity:.6;font:600 10px/1 var(--font-body);padding:6px 0;
+  transition:opacity .18s ease,transform .18s ease}
+.tab:hover,.tab.is-on{opacity:1}
+.tab:active{transform:scale(.94)}
+.tab svg{width:21px;height:21px}
+.tab--fab{position:relative;top:-16px}
+.tab--fab .tab__ico{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 22px rgba(196,240,0,.45);
+  transition:transform .18s ease}
+.tab--fab:active .tab__ico{transform:scale(.92)}
+.tab--fab{opacity:1}
 </style>
 </head>
 
@@ -913,6 +1018,149 @@ section[id], main[id]{scroll-margin-top:76px}
         <span class="tool__cta"><span data-i18n="tools_cta">Open this tool</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= 4b. ПРЕСЕТЫ (лента с фильтрами) ========================= -->
+<!-- v733: приём Хиггсфилда «VIRAL PRESETS» — чипы-категории + сетка карточек.
+     Карточка = глагол + что делает + один клик до действия. Пока превью
+     статические кадры наших работ; живое видео встанет сюда же, слот готов. -->
+<section class="sec sec--presets" id="presets" aria-labelledby="presets-h">
+  <div class="wrap">
+    <p class="eyebrow reveal">Пресеты</p>
+    <h2 class="h2 reveal" id="presets-h" data-i18n="presets_h">Готовые ходы, а не пустое поле</h2>
+    <p class="lead reveal" data-i18n="presets_lead">Выбираешь ход — получаешь результат. Ничего не настраиваешь.</p>
+
+    <div class="chips reveal" role="tablist" aria-label="Категории пресетов">
+      <button class="chip is-on" data-cat="all" role="tab" aria-selected="true">Все</button>
+      <button class="chip" data-cat="sketch" role="tab" aria-selected="false">Эскиз</button>
+      <button class="chip" data-cat="skin" role="tab" aria-selected="false">На коже</button>
+      <button class="chip" data-cat="print" role="tab" aria-selected="false">Печать</button>
+      <button class="chip" data-cat="motion" role="tab" aria-selected="false">Движение</button>
+      <button class="chip" data-cat="photo" role="tab" aria-selected="false">Фото</button>
+    </div>
+
+    <div class="pgrid reveal">
+      <article class="pcard" data-cat="sketch">
+        <div class="pcard__media"><img src="bull_sketch.jpg" alt="" loading="lazy" decoding="async"></div>
+        <h3 class="pcard__t">Нарисовать с нуля</h3>
+        <p class="pcard__d">Говоришь идею словами — получаешь эскиз в своём стиле.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+      <article class="pcard" data-cat="print">
+        <div class="pcard__media"><img src="bull_transfer.jpg" alt="" loading="lazy" decoding="async"></div>
+        <h3 class="pcard__t">Трансфер для печати</h3>
+        <p class="pcard__d">Чистый контур из эскиза — сразу на термопринтер.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+      <article class="pcard" data-cat="skin">
+        <div class="pcard__media"><img src="demo_tryon.jpg" alt="" loading="lazy" decoding="async"></div>
+        <h3 class="pcard__t">Примерить на теле</h3>
+        <p class="pcard__d">Эскиз ложится на фото — видно размер и посадку.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+      <article class="pcard" data-cat="sketch">
+        <div class="pcard__media"><img src="demo_sketch.jpg" alt="" loading="lazy" decoding="async"></div>
+        <h3 class="pcard__t">Вытащить из фото</h3>
+        <p class="pcard__d">Чужая работа с кривого кадра — в ровный эскиз.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+      <article class="pcard" data-cat="photo">
+        <div class="pcard__media"><img src="demo_transfer.jpg" alt="" loading="lazy" decoding="async"></div>
+        <h3 class="pcard__t">Фото как из студии</h3>
+        <p class="pcard__d">Свежая работа без красноты и бликов — в портфолио.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+      <article class="pcard pcard--soon" data-cat="motion">
+        <div class="pcard__media pcard__media--soon"><span class="pcard__badge">скоро</span></div>
+        <h3 class="pcard__t">Оживить рисунок</h3>
+        <p class="pcard__d">Тату двигается на коже — такое останавливает ленту.</p>
+        <span class="pcard__go">Открыть →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 4c. ССЫЛКА-ПРИМЕРКА ========================= -->
+<!-- v733 (заказ владельца): уникальная механика, которой ни у кого нет.
+     Объясняем в три шага и честно говорим, кто за что платит. -->
+<section class="sec sec--link" id="link" aria-labelledby="link-h">
+  <div class="wrap link__grid">
+    <div>
+      <p class="eyebrow reveal">Только у нас</p>
+      <h2 class="h2 reveal" id="link-h">Клиент меряет сам, дома</h2>
+      <p class="lead reveal">Ты отправляешь одну ссылку. Дальше он справляется без тебя,
+        а ты в это время работаешь.</p>
+      <ol class="steps reveal">
+        <li><b>Ты</b> отправляешь ссылку со своим эскизом.</li>
+        <li><b>Клиент</b> открывает её и примеряет на своём фото. Ему не нужно
+          ничего ставить и нигде регистрироваться.</li>
+        <li><b>Тебе</b> падает заявка от того, кто уже увидел работу на себе.</li>
+      </ol>
+      <p class="note reveal"><b>Платишь ты, из своего тарифа.</b> В каждом тарифе
+        заложено количество примерок для твоих клиентов — им бесплатно, тебе
+        предсказуемо.</p>
+    </div>
+    <div class="link__vis reveal" aria-hidden="true">
+      <div class="link__phone">
+        <span class="link__lbl">клиент у себя дома</span>
+        <img src="demo_tryon.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 4d. ЭКОНОМИЯ ВРЕМЕНИ ========================= -->
+<!-- v733: числа НЕ маркетинговые — это боевая таблица TIME_SAVED_MIN из кода
+     бота, уточнённая владельцем 10.06. Тем и ценна: она же считает мастеру
+     его личную экономию в кабинете. -->
+<section class="sec sec--time" id="time" aria-labelledby="time-h">
+  <div class="wrap">
+    <p class="eyebrow reveal">Сколько это стоит времени</p>
+    <h2 class="h2 reveal" id="time-h">Одна операция — минус полчаса рутины</h2>
+    <p class="lead reveal">Это те же числа, по которым бот считает твою личную
+      экономию в кабинете. Не витринные, а рабочие.</p>
+    <div class="ttable reveal" role="table" aria-label="Экономия времени на операцию">
+      <div class="trow trow--head" role="row"><span role="columnheader">Операция</span><span role="columnheader">Руками</span><span role="columnheader">У нас</span></div>
+      <div class="trow" role="row"><span role="cell">Создать эскиз</span><span role="cell">≈ 32 мин</span><span class="tsave" role="cell">минуты</span></div>
+      <div class="trow" role="row"><span role="cell">Сделать видео</span><span role="cell">≈ 43 мин</span><span class="tsave" role="cell">минуты</span></div>
+      <div class="trow" role="row"><span role="cell">Эскиз из фото</span><span role="cell">≈ 32 мин</span><span class="tsave" role="cell">минуты</span></div>
+      <div class="trow" role="row"><span role="cell">Примерка на теле</span><span role="cell">≈ 18 мин</span><span class="tsave" role="cell">минуты</span></div>
+      <div class="trow" role="row"><span role="cell">Правка словом</span><span role="cell">≈ 11 мин</span><span class="tsave" role="cell">минуты</span></div>
+      <div class="trow" role="row"><span role="cell">Трансфер для печати</span><span role="cell">≈ 9 мин</span><span class="tsave" role="cell">минуты</span></div>
+    </div>
+    <p class="note reveal">На потоке это складывается в <b>десятки часов в месяц</b> —
+      кабинет показывает твою собственную сумму, а не среднюю по больнице.</p>
+  </div>
+</section>
+
+<!-- ========================= 4e. ЖУРНАЛ ========================= -->
+<!-- v733: раздел из структуры каркаса + первый живой материал — интервью Драги. -->
+<section class="sec sec--journal" id="journal" aria-labelledby="journal-h">
+  <div class="wrap">
+    <p class="eyebrow reveal">Журнал</p>
+    <h2 class="h2 reveal" id="journal-h">Разговоры с мастерами</h2>
+    <div class="jgrid reveal">
+      <a class="jcard" href="../interviews/draga-pavlik.html">
+        <div class="jcard__media"><img src="draga-thumb.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="jcard__body">
+          <span class="jcard__tag">Интервью</span>
+          <h3 class="jcard__t">Драга Павлик</h3>
+          <p class="jcard__d">О своём почерке, о клиентах и о том, где машина
+            помогает, а где мешает.</p>
+          <span class="jcard__go">Читать →</span>
+        </div>
+      </a>
+      <div class="jcard jcard--soon">
+        <div class="jcard__body">
+          <span class="jcard__tag">Скоро</span>
+          <h3 class="jcard__t">Следующий разговор</h3>
+          <p class="jcard__d">Пишем с мастерами, которые работают руками
+            каждый день. Без рекламных интонаций.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1779,6 +2027,53 @@ function initTracking(){
         if(t>56){ clearInterval(id); rng.value=50; set(50); } },16);
     }});},{threshold:.4});
   io.observe(root);
+})();
+</script>
+
+<!-- v733: нижняя панель для мобильных, приём Хиггсфилда (Home/Community/
+     Generate/Library/Profile). У нас адаптировано под нишу: центральная
+     кнопка — действие, остальное — навигация по разделам сайта. -->
+<nav class="tabbar" aria-label="Мобильная навигация">
+  <a class="tab is-on" href="#top" aria-label="Главная">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5"/></svg>
+    <span>Главная</span></a>
+  <a class="tab" href="#presets" aria-label="Пресеты">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg>
+    <span>Пресеты</span></a>
+  <a class="tab tab--fab" href="#pricing" aria-label="Создать">
+    <span class="tab__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 3v18M3 12h18"/></svg></span>
+    <span>Создать</span></a>
+  <a class="tab" href="#journal" aria-label="Журнал">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4.5h9a3 3 0 0 1 3 3V21a2.5 2.5 0 0 0-2.5-2.5H4z"/><path d="M20 4.5h-2a3 3 0 0 0-3 3V21a2.5 2.5 0 0 1 2.5-2.5H20z"/></svg>
+    <span>Журнал</span></a>
+  <a class="tab" href="#time" aria-label="Польза">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg>
+    <span>Польза</span></a>
+</nav>
+
+<script>
+/* v733: фильтр пресетов чипами + подсветка активной вкладки при скролле. */
+(function(){
+  var chips=document.querySelectorAll('.chip'), cards=document.querySelectorAll('.pcard');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('is-on');x.setAttribute('aria-selected','false');});
+      c.classList.add('is-on'); c.setAttribute('aria-selected','true');
+      var cat=c.dataset.cat;
+      cards.forEach(function(card){
+        var show = (cat==='all' || card.dataset.cat===cat);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+  var tabs=document.querySelectorAll('.tabbar .tab');
+  var secs=['#top','#presets','#pricing','#journal','#time'].map(function(h){
+    return document.querySelector(h==='#top'?'body':h); });
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY+window.innerHeight*0.4, best=0;
+    secs.forEach(function(el,i){ if(el && el.offsetTop<=y) best=i; });
+    tabs.forEach(function(t,i){ t.classList.toggle('is-on', i===best); });
+  },{passive:true});
 })();
 </script>
 </body>
